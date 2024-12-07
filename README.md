@@ -1,6 +1,6 @@
 # aws-cookbook
 
-![](./aws-cookbook.png)
+![](./img/aws-cookbook.png)
 
 ## Recipes
 1. [Parameterized deploy of single EC2 instance](./cloudformation/parameterized-ec2-deploy/)
