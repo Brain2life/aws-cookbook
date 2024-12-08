@@ -8,6 +8,9 @@ In general there are three types of EKS cluster related to the worker nodes conf
 
 This example project provisions [**EKS cluster with Managed Node Groups**](https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html) with the cheap EC2 instance type for worker nodes `t3.micro`. Deployed Kubernetes version is [`1.30.0`](https://kubernetes.io/blog/2024/04/17/kubernetes-v1-30-release/). This configuration is well-suited for development or workshop environments, focusing on simplicity and cost-effectiveness.
 
+![](../img/managed_nodes_group.png)
+Image credits: [KodeKloud](https://www.youtube.com/watch?v=o73kDW0xqlg)
+
 EKS cluster provisioned via `eksctl` tool. [`eksctl`](https://eksctl.io/) - is an open-source CLI tool provided by AWS for creating and managing clusters on EKS - Amazon's managed Kubernetes service for EC2.
 
 Cluster created by using config file instead of flags. For more information, see [Using Config Files](https://eksctl.io/usage/creating-and-managing-clusters/#using-config-files)
