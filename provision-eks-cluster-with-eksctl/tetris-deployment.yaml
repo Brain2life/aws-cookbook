@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tetris-game
+  labels:
+    app: tetris-game
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tetris-game
+  template:
+    metadata:
+      labels:
+        app: tetris-game
+    spec:
+      containers:
+      - name: tetris-game
+        image: makbanov/tetris-game:latest
+        ports:
+        - containerPort: 80 # Port inside the container
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: tetris-game-service
+  labels:
+    app: tetris-game
+spec:
+  type: LoadBalancer
+  selector:
+    app: tetris-game
+  ports:
+  - protocol: TCP
+    port: 80       # Port of the service
+    targetPort: 80 # Port of the container
