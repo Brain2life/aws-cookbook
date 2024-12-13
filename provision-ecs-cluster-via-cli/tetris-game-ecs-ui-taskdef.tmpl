@@ -1,0 +1,52 @@
+{
+    "family": "tetris-game-ecs-ui",
+    "networkMode": "awsvpc",
+    "requiresCompatibilities": [
+        "FARGATE"
+    ],
+    "cpu": "1024",
+    "memory": "2048",
+    "runtimePlatform": {
+        "cpuArchitecture": "X86_64",
+        "operatingSystemFamily": "LINUX"
+    },
+    "containerDefinitions": [
+        {
+            "name": "application",
+            "image": "makbanov/tetris-game:latest",
+            "portMappings": [
+                {
+                    "name": "application",
+                    "containerPort": 80,
+                    "hostPort": 80,
+                    "protocol": "tcp",
+                    "appProtocol": "http"
+                }
+            ],
+            "essential": true,
+            "linuxParameters": {
+                "initProcessEnabled": true
+            },
+            "healthCheck": {
+                "command": [
+                    "CMD-SHELL",
+                    "curl -f http://localhost:80/actuator/health || exit 1"
+                ],
+                "interval": 10,
+                "timeout": 5,
+                "retries": 3,
+                "startPeriod": 60
+            },
+            "logConfiguration": {
+                "logDriver": "awslogs",
+                "options": {
+                    "awslogs-group": "tetris-game-ecs-tasks",
+                    "awslogs-region": "us-east-1",
+                    "awslogs-stream-prefix": "ui-service"
+                }
+            }
+        }
+    ],
+    "executionRoleArn": "arn:aws:iam::730335263793:role/tetrisGameEcsTaskExecutionRole",
+    "taskRoleArn": "arn:aws:iam::730335263793:role/tetrisGameEcsTaskRole"
+}
