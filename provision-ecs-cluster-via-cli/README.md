@@ -12,6 +12,7 @@ This poject shows how to build the core components of Amazon ECS, including an E
 - [Create cluster](#create-cluster)
 - [Create task definition](#create-task-definition)
 - [Create services](#create-services)
+- [References](#references)
 
 ## Sample application
 
@@ -510,3 +511,10 @@ In case of adding new changes, restart ECS service:
 ```bash
 aws ecs update-service --cluster tetris-game-ecs-cluster --service tetris-app --force-new-deployment
 ```
+
+## References
+
+- [AWS ECS Workshop](https://catalog.workshops.aws/ecs-immersion-day/en-US)
+- [Tetris game Docker image](https://hub.docker.com/r/makbanov/tetris-game)
+- [Amazon ECS: Task and Task Definition Overview](https://www.youtube.com/watch?v=5uJUmGWjRZY)
+- [Retail store app Docker image](https://gallery.ecr.aws/aws-containers/retail-store-sample-ui)
