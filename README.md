@@ -8,3 +8,4 @@
 - [Image Resizing with Lambda using Two S3 Buckets](./s3-trigger-lambda/)
 - [Provision EKS Managed Node Groups Cluster via eksctl](./provision-eks-cluster-with-eksctl/)
 - [Provision ECS cluster with service via AWS CLI](./provision-ecs-cluster-via-cli/)
+- [How to provide Internet access for resources via IGW](./provide-internet-access-via-igw/)
