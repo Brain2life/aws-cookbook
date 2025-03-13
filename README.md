@@ -8,8 +8,6 @@
 
 AWS has significantly more [services](https://aws.amazon.com/products/?pg=WIAWS-mstf), and more features within those services, than any other cloud provider–from infrastructure technologies like compute, storage, and databases–to emerging technologies, such as machine learning and artificial intelligence, data lakes and analytics, and Internet of Things. This makes it faster, easier, and more cost effective to move your existing applications to the cloud and build nearly anything you can imagine.
 
-
-
 ## Cookbook
 - [Parameterized deploy of single EC2 instance](./cloudformation/parameterized-ec2-deploy/)
 - [Run Hello World AWS Lambda function via AWS CLI](./lambda/hello-world-via-cli/)
