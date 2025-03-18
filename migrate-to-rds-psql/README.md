@@ -72,6 +72,23 @@ sudo apt install postgresql
 ```
 
 To install PostgreSQL 17.x version:
+
+Add 17.x repository:
+```bash
+sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
+```
+
+Import the repository signing key:
+```bash
+curl -fsSL https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/postgresql.gpg
+```
+
+Update the package list:
+```bash
+sudo apt update
+```
+
+Install PostgreSQL 17 and contrib modules:
 ```bash
 sudo apt install -y postgresql-17
 ```
