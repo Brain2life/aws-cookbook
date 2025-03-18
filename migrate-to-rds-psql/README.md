@@ -386,6 +386,6 @@ psql -U <rds-user> -h <rds-endpoint> -p 5432 -d <rds-db-name> -f <sample-db>.sql
 3. [PostgreSQL 17 Installation on Ubuntu 24.04](https://dev.to/johndotowl/postgresql-17-installation-on-ubuntu-2404-5bfi)
 4. [PostgreSQL Sample Databases](https://wiki.postgresql.org/wiki/Sample_Databases)
 5. [AWS Blog: Best practices for migrating PostgreSQL databases to Amazon RDS and Amazon Aurora](https://aws.amazon.com/blogs/database/best-practices-for-migrating-postgresql-databases-to-amazon-rds-and-amazon-aurora/)
-6. [AWS Docs: PostgreSQL pg_dump and pg_restore utility]()https://docs.aws.amazon.com/dms/latest/sbs/chap-manageddatabases.postgresql-rds-postgresql-full-load-pd_dump.html
+6. [AWS Docs: PostgreSQL pg_dump and pg_restore utility](https://docs.aws.amazon.com/dms/latest/sbs/chap-manageddatabases.postgresql-rds-postgresql-full-load-pd_dump.html)
 7. [github.com/aws-samples/aws-database-migration-samples/tree/master/PostgreSQL/sampledb/v1](https://github.com/aws-samples/aws-database-migration-samples/tree/master/PostgreSQL/sampledb/v1)
 8. [Postgres Sample DBs from NeonDatabaseLabs](https://github.com/neondatabase-labs/postgres-sample-dbs?tab=readme-ov-file#wikipedia-vector-embeddings)
