@@ -278,6 +278,9 @@ After downloading the template, to import the resources run:
 cdk migrate --stack-name <stack_name> --language <programming_language> --from-path <path_to_cloudformation_yaml_file>
 ```
 
+**NOTE**  
+The code from IaC generator is translated into L1 constructs
+
 ### Delete the app
 
 To delete the app run:
@@ -286,9 +289,6 @@ cdk destroy
 ```
 
 This will delete all resources, except that has `retain` policy enabled.
-
-**NOTE**  
-The code from IaC generator is translated into L1 constructs
 
 ## References
 - [YouTube: AWS CDK Crash Course for Beginners](https://www.youtube.com/watch?v=D4Asp5g4fp8)
