@@ -14,7 +14,7 @@ Using CDK provides several benefits:
 
 ## How CDK works?
 
-CDK code compiles into CloudFormation YAML/JSON template files. Next, CloudFormation deployes the compiled files into AWS.
+CDK code compiles into CloudFormation YAML/JSON template files. Next, CloudFormation deploys the compiled files into AWS.
 
 ![](../img/aws_cdk_how_it_workds.png)
 
@@ -230,7 +230,7 @@ cdk synth
 
 > [!CAUTION] 
 > Default behavior for L1 construct during renaming is to delete and recreate the resource!  
-> L2 constructs by default create a new bucket and then delete the resource.
+> L2 constructs by default creates a new bucket and then deletes the resource.
 
 ```yaml
 DeletionPolicy: Retain 
@@ -263,7 +263,7 @@ Any IAM permission changes will be viewed and asked to be reviewed before applyi
 
 ![](../img/cdk_iam_policy_changes.png)
 
-On successfull deployment you should see the queue and the test S3 event notification message:
+On successful deployment you should see the queue and the test S3 event notification message:
 
 ![](../img/cdk_s3_event.png)
 
