@@ -18,3 +18,4 @@ AWS has significantly more [services](https://aws.amazon.com/products/?pg=WIAWS-
 - [Migrate PostgreSQL to AWS RDS](./migrate-to-rds-psql/)
 - [AWS CDK Basics](./cdk-basics/)
 - [API Gateway Basics: HTTP API with Lambda function](./api-gateway/basics/)
+- [API Gateway: CRUD HTTP API with Lambda and DynamoDB](./api-gateway/http-api-lambda-dynamodb/)
