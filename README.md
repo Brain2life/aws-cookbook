@@ -17,3 +17,4 @@ AWS has significantly more [services](https://aws.amazon.com/products/?pg=WIAWS-
 - [How to provide Internet access for resources via IGW](./provide-internet-access-via-igw/)
 - [Migrate PostgreSQL to AWS RDS](./migrate-to-rds-psql/)
 - [AWS CDK Basics](./cdk-basics/)
+- [API Gateway Basics: HTTP API with Lambda function](./api-gateway/basics/)
