@@ -13,7 +13,7 @@ module "my_lambda_function" {
   runtime       = "nodejs22.x"
 
   # Point to the Lambda function code directory. Store package locally.
-  source_path = "${path.module}/lambda"
+  source_path = "${path.module}/app"
 
   # Publish a new version on each apply
   publish = true
