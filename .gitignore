@@ -45,3 +45,14 @@ node_modules
 # CDK asset staging directory
 .cdk.staging
 cdk.out
+
+# Node.js / Lambda build artifacts
+node_modules/
+builds/
+dist/
+*.zip
+
+# Optional: editor, OS, CI
+.vscode/
+.idea/
+.DS_Store
