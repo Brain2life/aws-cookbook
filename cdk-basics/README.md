@@ -294,3 +294,4 @@ This will delete all resources, except that has `retain` policy enabled.
 - [YouTube: AWS CDK Crash Course for Beginners](https://www.youtube.com/watch?v=D4Asp5g4fp8)
 - [CDK v2 API reference](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-construct-library.html)
 - [CDK GitHub repository](https://github.com/aws/aws-cdk)
+- [AWS CDK Immersion Day Workshop](https://catalog.us-east-1.prod.workshops.aws/workshops/10141411-0192-4021-afa8-2436f3c66bd8/en-US)
