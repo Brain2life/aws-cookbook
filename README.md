@@ -19,3 +19,4 @@ AWS has significantly more [services](https://aws.amazon.com/products/?pg=WIAWS-
 - [AWS CDK Basics](./cdk-basics/)
 - [API Gateway Basics: HTTP API with Lambda function](./api-gateway/basics/)
 - [API Gateway: CRUD HTTP API with Lambda and DynamoDB](./api-gateway/http-api-lambda-dynamodb/)
+- [Run Agones Dedicated Game Server on EKS](./agones-game-server-eks/)
