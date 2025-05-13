@@ -158,6 +158,51 @@ If such dedicated nodes are not available, Agones components will fall back to r
 
 For instructions on setting up a dedicated node pool for Agones, see the [Agones installation instructions](https://agones.dev/site/docs/installation/) for your preferred environment.
 
+## Agones Components
+
+![](../img/agones_components.png)
+
+The Agones Control Plane consists of 4 `Deployments`:
+```bash
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+agones-allocator    3/3     3            3           40d
+agones-controller   2/2     2            2           40d
+agones-extensions   2/2     2            2           40d
+agones-ping         2/2     2            2           40d
+```
+
+### agones-allocator
+
+**agones-allocator** is a service that exposes both **gRPC** and **REST APIs**, allowing external systems (like your game backend) to request a game server to be assigned to a player. When a request is made, it creates a **GameServerAllocation**, which finds and reserves an available game server for the session.
+
+You can learn more in the [Allocator Service documentation](https://agones.dev/site/docs/advanced/allocator-service/).
+
+### agones-controller
+
+**agones-controller** is responsible for managing the **control loops** for all Agones custom resources, such as `GameServer`, `Fleet`, and others.  
+  
+It runs as a **Deployment** with a **leader election mechanism**, meaning only one Pod is actively managing these resources at any time, ensuring consistency and high availability.  
+  
+Learn more in the [High Availability documentation](https://agones.dev/site/docs/advanced/high-availability-agones/).
+
+### agones-extensions
+
+**agones-extensions** acts as the endpoint for two key components:  
+  
+- **Kubernetes webhooks installed by Agones**, which handle **defaulting and validation** for Agones custom resources (CRs).  
+- The **GameServerAllocation APIService**, which processes allocation requests - either coming from the **Allocator Service** or directly through the **Kubernetes API**.
+
+### agones-ping
+
+**agones-ping** is a lightweight **ping service** used for **latency testing** from your game client.  
+  
+It helps you measure response times between your client and game servers.  
+  
+Learn more in the [Latency Testing documentation](https://agones.dev/site/docs/guides/ping-service/).
+
+
+
+
 ## References
 
 - [Servers.com Blog: What is a gaming server?](https://www.servers.com/news/blog/what-is-a-game-server)
