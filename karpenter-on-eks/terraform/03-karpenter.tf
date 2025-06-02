@@ -7,6 +7,9 @@ module "eks_karpenter" {
   version = "~> 20.36.0"
 
   cluster_name          = module.eks.cluster_name
+
+  # Enables IAM permissions required for Karpenter v1.x+
+  # Set to `false` if using legacy versions (v0.33.x to v0.37.x)
   enable_v1_permissions = true
 
   # Name needs to match role name passed to the EC2NodeClass
