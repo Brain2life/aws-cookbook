@@ -1,0 +1,66 @@
+# NodePool defines how Karpenter should provision nodes.
+apiVersion: karpenter.sh/v1
+kind: NodePool
+metadata:
+  name: default  # The name of the NodePool
+spec:
+  template:
+    metadata:
+      labels:
+        type: karpenter  # Label applied to provisioned nodes
+    spec:
+      requirements:
+        # Use only On-Demand capacity (no Spot)
+        - key: "karpenter.sh/capacity-type"
+          operator: In
+          values: ["on-demand"]
+
+        # Restrict provisioning to these instance types
+        - key: "node.kubernetes.io/instance-type"
+          operator: In
+          values: ["t3.small", "t3a.small", "t3.medium"]
+
+      # Reference the infrastructure definition (EC2NodeClass)
+      nodeClassRef:
+        group: karpenter.k8s.aws
+        kind: EC2NodeClass
+        name: default
+
+      # Automatically expire nodes after 72 hours (used for recycling)
+      expireAfter: 72h
+
+  # Maximum CPU and memory Karpenter is allowed to provision in this pool
+  limits:
+    cpu: "1000"
+    memory: 1000Gi
+
+  # Define node consolidation strategy (optimize utilization)
+  disruption:
+    consolidationPolicy: WhenEmptyOrUnderutilized
+    consolidateAfter: 1m
+
+---
+# EC2NodeClass defines the AWS-specific provisioning details
+apiVersion: karpenter.k8s.aws/v1
+kind: EC2NodeClass
+metadata:
+  name: default  # Reference name for NodePool
+spec:
+  amiFamily: AL2023  # Amazon Linux 2023 optimized for EKS
+
+  # Use the latest Amazon Linux 2023 AMI managed by AWS
+  amiSelectorTerms:
+    - alias: al2023@latest
+
+  # IAM role to be assumed by provisioned EC2 nodes
+  role: "${KARPENTER_ROLE}"
+
+  # Match subnets tagged for Karpenter discovery
+  subnetSelectorTerms:
+    - tags:
+        karpenter.sh/discovery: "${EKS_CLUSTER_NAME}"
+
+  # Match security groups tagged for Karpenter discovery
+  securityGroupSelectorTerms:
+    - tags:
+        karpenter.sh/discovery: "${EKS_CLUSTER_NAME}"

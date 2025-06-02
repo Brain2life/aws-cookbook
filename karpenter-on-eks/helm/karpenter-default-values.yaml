@@ -1,0 +1,116 @@
+COMPUTED VALUES:
+additionalAnnotations: {}
+additionalClusterRoleRules: []
+additionalLabels: {}
+affinity:
+  nodeAffinity:
+    requiredDuringSchedulingIgnoredDuringExecution:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: karpenter.sh/nodepool
+          operator: DoesNotExist
+  podAntiAffinity:
+    requiredDuringSchedulingIgnoredDuringExecution:
+    - topologyKey: kubernetes.io/hostname
+controller:
+  containerName: controller
+  env: []
+  envFrom: []
+  extraVolumeMounts: []
+  healthProbe:
+    port: 8081
+  image:
+    digest: sha256:339aef3f5ecdf6f94d1c7cc9d0e1d359c281b4f9b842877bdbf2acd3fa360521
+    repository: public.ecr.aws/karpenter/controller
+    tag: 1.5.0
+  metrics:
+    port: 8080
+  nodeSelector:
+    karpenter.sh/controller: true
+  resources:
+    limits:
+      cpu: 1
+      memory: 1Gi
+    requests:
+      cpu: 1
+      memory: 1Gi
+  securityContext:
+    appArmorProfile: {}
+    seLinuxOptions: {}
+    seccompProfile: {}
+  sidecarContainer: []
+  sidecarVolumeMounts: []
+  tolerations:
+  - effect: NoSchedule
+    key: karpenter.sh/controller-only
+    operator: Equal
+    value: true
+dnsConfig: {}
+dnsPolicy: ClusterFirst
+extraVolumes: []
+fullnameOverride: ""
+hostNetwork: false
+imagePullPolicy: IfNotPresent
+imagePullSecrets: []
+initContainers: {}
+logErrorOutputPaths:
+- stderr
+logLevel: info
+logOutputPaths:
+- stdout
+nameOverride: ""
+nodeSelector:
+  kubernetes.io/os: linux
+podAnnotations: {}
+podDisruptionBudget:
+  maxUnavailable: 1
+  name: karpenter
+podLabels: {}
+podSecurityContext:
+  fsGroup: 65532
+  runAsNonRoot: false
+  seccompProfile:
+    type: RuntimeDefault
+priorityClassName: system-cluster-critical
+replicas: 2
+revisionHistoryLimit: 10
+schedulerName: default-scheduler
+service:
+  annotations: {}
+serviceAccount:
+  annotations: {}
+  create: true
+  name: ""
+serviceMonitor:
+  additionalLabels: {}
+  enabled: false
+  endpointConfig: {}
+  metricRelabelings: []
+  relabelings: []
+settings:
+  batchIdleDuration: 1s
+  batchMaxDuration: 10s
+  clusterCABundle: ""
+  clusterEndpoint: ""
+  clusterName: eks-cluster
+  eksControlPlane: false
+  featureGates:
+    nodeRepair: false
+    reservedCapacity: false
+    spotToSpotConsolidation: false
+  interruptionQueue: karpenter-sqs
+  isolatedVPC: false
+  preferencePolicy: Respect
+  reservedENIs: "0"
+  vmMemoryOverheadPercent: 0.075
+strategy:
+  rollingUpdate:
+    maxUnavailable: 1
+terminationGracePeriodSeconds: null
+tolerations:
+- key: CriticalAddonsOnly
+  operator: Exists
+topologySpreadConstraints:
+- maxSkew: 1
+  topologyKey: topology.kubernetes.io/zone
+  whenUnsatisfiable: DoNotSchedule
