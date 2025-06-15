@@ -21,3 +21,4 @@ AWS has significantly more [services](https://aws.amazon.com/products/?pg=WIAWS-
 - [API Gateway: CRUD HTTP API with Lambda and DynamoDB](./api-gateway/http-api-lambda-dynamodb/)
 - [Run Agones Dedicated Game Server on EKS](./agones-game-server-eks/)
 - [Install and run Karpenter on EKS via Terraform module](./karpenter-on-eks/)
+- [Auto-mount S3 via fstab](./mount-s3-via-fstab/)
