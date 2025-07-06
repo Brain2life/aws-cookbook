@@ -214,56 +214,8 @@ terraform apply
 ```
 
 You should see, that Terraform will create ECS Cluster and enable CloudWath Log Group:
-```json
-Terraform will perform the following actions:
 
-  # module.ecs.module.cluster.aws_cloudwatch_log_group.this[0] will be created
-  + resource "aws_cloudwatch_log_group" "this" {
-      + arn               = (known after apply)
-      + id                = (known after apply)
-      + log_group_class   = (known after apply)
-      + name              = "/aws/ecs/retail-store-ecs-cluster"
-      + name_prefix       = (known after apply)
-      + retention_in_days = 90
-      + skip_destroy      = false
-      + tags              = {
-          + "Environment" = "dev"
-          + "Terraform"   = "true"
-        }
-      + tags_all          = {
-          + "Environment" = "dev"
-          + "Terraform"   = "true"
-        }
-    }
-
-  # module.ecs.module.cluster.aws_ecs_cluster.this[0] will be created
-  + resource "aws_ecs_cluster" "this" {
-      + arn      = (known after apply)
-      + id       = (known after apply)
-      + name     = "retail-store-ecs-cluster"
-      + tags     = {
-          + "Environment" = "dev"
-          + "Terraform"   = "true"
-        }
-      + tags_all = {
-          + "Environment" = "dev"
-          + "Terraform"   = "true"
-        }
-
-      + configuration {
-          + execute_command_configuration {
-              + logging = "DEFAULT"
-            }
-        }
-
-      + setting {
-          + name  = "containerInsights"
-          + value = "enabled"
-        }
-    }
-
-Plan: 2 to add, 0 to change, 0 to destroy.
-```
+![](../../img/ecs_tf_output.png)
 
 In AWS Console you should see ECS Cluster created and CloudWatch Container Insights enabled:
 
