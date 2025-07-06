@@ -409,7 +409,7 @@ The output will show all of the revisions of the UI service:
 ```
 
 In Terraform ECS module, the task definition `family` is automatically derived from the **service name**, which is:
-```json
+```bash
 services = {
   retail-store-ui = { ... }
 }
