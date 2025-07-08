@@ -1,4 +1,4 @@
-# ECS (Elastic Container Service) Foundations
+# Elastic Container Service (ECS) Foundations
 
 ![](../../img/amazon-ecs-overview.png)
 
