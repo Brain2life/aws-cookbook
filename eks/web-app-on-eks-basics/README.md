@@ -1,4 +1,4 @@
-# Deploying Applications on Amazon EKS
+# Basics of Deploying Web Application on Amazon EKS. Configure CloudWatch, HPA and Autoscaler
 
 ![](../../img/eks_workshop.png)
 
