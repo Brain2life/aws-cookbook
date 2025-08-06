@@ -23,3 +23,4 @@ AWS has significantly more [services](https://aws.amazon.com/products/?pg=WIAWS-
 - [Install and run Karpenter on EKS via Terraform module](./karpenter-on-eks/)
 - [Auto-mount S3 via fstab](./mount-s3-via-fstab/)
 - [ECS Foundations: Provision ECS Fargate Cluster behind ALB](./ecs/foundations/)
+- [EKS: Basics of Deploying Web Application on Amazon EKS. Configure CloudWatch, HPA and Autoscaler](./eks/web-app-on-eks-basics/)
