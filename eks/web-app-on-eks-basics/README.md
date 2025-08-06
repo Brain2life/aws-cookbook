@@ -1,4 +1,4 @@
-# Building Web Applications based on Amazon EKS
+# Deploying Applications on Amazon EKS
 
 ![](../../img/eks_workshop.png)
 
@@ -16,6 +16,43 @@ This workshop shows how to:
 Before starting the workshop, clarify the fundamental concepts below:
 - [About Kubernetes (k8s)](https://catalog.us-east-1.prod.workshops.aws/workshops/9c0aa9ab-90a9-44a6-abe1-8dff360ae428/en-US/10-about-eks/100-k8s)
 - [Amazon EKS](https://catalog.us-east-1.prod.workshops.aws/workshops/9c0aa9ab-90a9-44a6-abe1-8dff360ae428/en-US/10-about-eks/200-eks)
+
+## Table of Contents
+
+1. [Deploying Applications on Amazon EKS](#deploying-applications-on-amazon-eks)
+2. [Kubernetes Overview](#kubernetes-overview)
+   - [Kubernetes Cluster](#kubernetes-cluster)
+   - [Kubernetes Addons](#kubernetes-addons)
+   - [Common Examples of Addons](#common-examples-of-addons)
+   - [Why Addons Matter](#why-addons-matter)
+   - [Kubernetes Objects](#kubernetes-objects)
+3. [Amazon EKS](#amazon-eks)
+4. [Prerequisites](#prerequisites)
+   - [Install Kubectl](#install-kubectl)
+   - [Install eksctl](#install-eksctl)
+5. [Container Image](#container-image)
+6. [Build Container Image](#build-container-image)
+7. [Create Amazon ECR Repository and Upload Image](#create-amazon-ecr-repository-and-upload-image)
+8. [Create EKS Cluster](#create-eks-cluster)
+   - [Create EKS Cluster with eksctl](#create-eks-cluster-with-eksctl)
+9. [Amazon EKS Access Entry](#amazon-eks-access-entry)
+10. [Create Ingress Controller](#create-ingress-controller)
+11. [Create AWS Load Balancer Controller](#create-aws-load-balancer-controller)
+    - [Add Controller to the Cluster](#add-controller-to-the-cluster)
+12. [Deploy Microservices](#deploy-microservices)
+    - [Deploy First Backend Service (Flask)](#deploy-first-backend-service)
+    - [Deploy Second Backend Service (NodeJS)](#deploy-second-backend-service)
+      - [With Images](#with-images)
+      - [Without Images](#without-images)
+13. [Deploy Frontend Service](#deploy-frontend-service)
+14. [Amazon CloudWatch Container Insights](#amazon-cloudwatch-container-insights)
+    - [Install CloudWatch Agent and FluentBit](#install-cloudwatch-agent-and-fluentbit)
+15. [Kubernetes Auto Scaling](#kubernetes-auto-scaling)
+    - [HPA (Horizontal Pod Autoscaler)](#hpa-horizontal-pod-autoscaler)
+    - [Cluster Autoscaler](#cluster-autoscaler)
+16. [Applying Pod Scaling with HPA](#applying-pod-scaling-with-hpa)
+17. [Cluster Autoscaler](#cluster-autoscaler-1)
+18. [References](#references)
 
 ## Kubernetes Overview
 
@@ -1275,4 +1312,4 @@ kubectl delete deployment autoscaler-demo
 ## References
 - [Repo with fixed images for the frontend: github.com/Brain2life/amazon-eks-nodejs](https://github.com/Brain2life/amazon-eks-nodejs)
 - [github.com/joozero](https://github.com/joozero)
-- [AWS EKS Workshop at IITU]()https://www.meetup.com/aws-cloud-club-at-iitu/events/310078745/
+- [AWS EKS Workshop at IITU](https://www.meetup.com/aws-cloud-club-at-iitu/events/310078745/)
