@@ -653,7 +653,7 @@ The code is available at: [https://github.com/joozero/amazon-eks-nodejs](https:/
 
 ### With Images
 
-To proceed with displaying images, you have to deploy your own S3 bucket with public access, place images their and change URLs in `app.js` file of the `amazon-eks-nodejs` repository. 
+To proceed with displaying images, you have to deploy your own S3 bucket with public access, place images into it and change the URLs in `app.js` file of the `amazon-eks-nodejs` repository. 
 
 The fixed version is available at: [https://github.com/Brain2life/amazon-eks-nodejs](https://github.com/Brain2life/amazon-eks-nodejs)
 
