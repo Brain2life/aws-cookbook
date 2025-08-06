@@ -1,0 +1,27 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo-flask-backend
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: demo-flask-backend
+  template:
+    metadata:
+      labels:
+        app: demo-flask-backend
+    spec:
+      containers:
+        - name: demo-flask-backend
+          image: 339712714478.dkr.ecr.us-east-1.amazonaws.com/demo-flask-backend:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+          resources:
+            requests:
+              cpu: 250m
+            limits:
+              cpu: 500m
