@@ -25,3 +25,4 @@ AWS has significantly more [services](https://aws.amazon.com/products/?pg=WIAWS-
 - [ECS Foundations: Provision ECS Fargate Cluster behind ALB](./ecs/foundations/)
 - [EKS: Basics of Deploying Web Application on Amazon EKS. Configure CloudWatch, HPA and Autoscaler](./eks/web-app-on-eks-basics/)
 - [EKS: Fully Private Cluster](./eks/eks-blueprints/fully-private-cluster/)
+- [EKS: VPC Networking Configurations for EKS](./eks/eks-vpc-configurations/)
