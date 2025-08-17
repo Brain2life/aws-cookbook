@@ -1,0 +1,20 @@
+frontend:
+  image: public.ecr.aws/kubecost/frontend
+
+kubecost:
+  image: public.ecr.aws/kubecost/cost-model
+
+forecasting:
+  image:
+    repository: public.ecr.aws/kubecost/kubecost-modeling
+
+networkCosts:
+  image:
+    repository: public.ecr.aws/kubecost/kubecost-network-costs
+
+clusterController:
+  image:
+    repository: public.ecr.aws/kubecost/cluster-controller
+
+reporting:
+  productAnalytics: false
