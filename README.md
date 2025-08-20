@@ -45,3 +45,4 @@ AWS has significantly more [services](https://aws.amazon.com/products/?pg=WIAWS-
 
 ### Cloud Development Kit (CDK)
 - [AWS CDK Basics](./cdk-basics/)
+- [Getting started with CDK: Full workflow](./cdk/getting-started-with-cdk/)
