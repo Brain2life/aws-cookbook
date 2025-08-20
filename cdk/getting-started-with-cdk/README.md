@@ -6,6 +6,39 @@ This project shows the sample getting started workflow with AWS CDK by:
 - **Bootstrap AWS environment**,
 - **Deploy application**.
 
+# Table of Contents
+
+- [Getting Started with Cloud Development Kit (CDK)](#getting-started-with-cloud-development-kit-cdk)
+  - [Prerequisites](#prerequisites)
+  - [Install AWS CDK CLI](#install-aws-cdk-cli)
+  - [What is `npx`?](#what-is-npx)
+    - [How it Works](#how-it-works)
+    - [Why Use npx?](#why-use-npx)
+  - [(Optional) Additional Tools](#optional-additional-tools)
+  - [Application](#application)
+- [Step 1: Create your CDK project](#step-1-create-your-cdk-project)
+  - [App Templates](#app-templates)
+  - [Main template types in CDK](#main-template-types-in-cdk)
+  - [Project Structure](#project-structure)
+  - [Key Directories](#key-directories)
+- [Step 2: Configure your AWS environment](#step-2-configure-your-aws-environment)
+  - [Hard-code Environments Values on Production](#hard-code-environments-values-on-production)
+  - [Environment precedence with the AWS CDK](#environment-precedence-with-the-aws-cdk)
+- [Step 3: Bootstrap your AWS environment](#step-3-bootstrap-your-aws-environment)
+  - [What `cdk bootstrap` does?](#what-cdk-bootstrap-does)
+    - [Resources it creates](#resources-it-creates-default-modern-bootstrap-stack)
+    - [Why it’s required](#why-its-required)
+- [Step 4: Build your CDK app](#step-4-build-your-cdk-app)
+- [Step 5: Define your Lambda function](#step-5-define-your-lambda-function)
+- [Step 6: Define your Lambda function URL](#step-6-define-your-lambda-function-url)
+- [Step 7: Synthesize a CloudFormation template](#step-7-synthesize-a-cloudformation-template)
+- [Step 8: Deploy your CDK stack](#step-8-deploy-your-cdk-stack)
+- [Step 9: Modify your application](#step-9-modify-your-application)
+- [Step 10: Delete your application](#step-10-delete-your-application)
+- [(Optional) Use `.env` File to Keep CDK Deployment Configuration](#optional-use-env-file-to-keep-cdk-deployment-configuration)
+- [(Optional) Automate CDK Commands with Make](#optional-automate-cdk-commands-with-make)
+- [References](#references)
+
 ## Prerequisites
 
 - [AWS CLI installed](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
