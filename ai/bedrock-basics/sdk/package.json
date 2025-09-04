@@ -1,0 +1,6 @@
+{
+  "type": "module",
+  "dependencies": {
+    "@aws-sdk/client-bedrock": "^3.879.0"
+  }
+}
