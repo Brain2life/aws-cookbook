@@ -127,3 +127,4 @@ Embeddings are most often used in **Retrieval-Augmented Generation (RAG)**, but 
 - [Amazon OpenSearch Service as a Vector Database](https://aws.amazon.com/opensearch-service/serverless-vector-database/)
 - [`pgvector` extension for PostgreSQL](https://github.com/pgvector/pgvector)
 - [In-memory FAISS database to store and search for embeddings vectors](https://github.com/facebookresearch/faiss)
+- [Building an AI Chatbot on AWS Bedrock: Lessons from Tele2 Kazakhstan](https://maxat-akbanov.com/building-an-ai-chatbot-on-aws-bedrock-lessons-from-tele2-kazakhstan)
