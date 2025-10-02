@@ -50,3 +50,6 @@ AWS has significantly more [services](https://aws.amazon.com/products/?pg=WIAWS-
 ## Artificial Intelligence (AI)
 - [Bedrock Basics](./ai/bedrock-basics/)
 - [Getting started with Amazon Titan Text Embeddings in Amazon Bedrock](./ai/titan-embeddings-bedrock/)
+
+## CodeDeploy
+- [CodeDeploy Basics: Service Role for EC2 Deployments](./codedeploy/basics/)
