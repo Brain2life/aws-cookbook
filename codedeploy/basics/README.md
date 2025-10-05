@@ -127,7 +127,7 @@ If you create your Auto Scaling group with a launch template, you must add the f
 
 For more information, see [Create a service role for CodeDeploy](https://docs.aws.amazon.com/codedeploy/latest/userguide/getting-started-create-service-role.html).
 
-The example of creating sample CodeDeploy Service Role for EC2 deployments can be found at `terraform` folder. In that example, **first you have to define the EC2 Instance Profile** that will assume the CodeDeploy Service Role and be used as in launch templates for EC2 AutoScaling Groups. Next, you **define the Service Role itself** with permssions of `AWSCodeDeployRole` with added permissions for launch template of autoscaling group.
+The example of creating sample CodeDeploy Service Role for EC2 deployments can be found at `terraform` folder. In that example, **first you define the EC2 Instance Profile** that will assume the CodeDeploy Service Role and will be used as in launch templates for EC2 AutoScaling Groups. Next, you **define the Service Role itself** with permssions of `AWSCodeDeployRole` with autoscaling group's launch template permissions added on top of that.
 
 To get the values of the roles:
 ```bash
