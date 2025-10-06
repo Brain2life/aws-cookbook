@@ -93,7 +93,7 @@ The process relies on a standard protocol called OpenID Connect (OIDC), which is
 
 4.  **Workflow Presents the JWT:** An action in your workflow (e.g., the official [`aws-actions/configure-aws-credentials`](https://github.com/aws-actions/configure-aws-credentials) action) sends this JWT to the cloud provider's security service (like AWS STS).
 5.  **Cloud Provider Verifies the JWT:** The cloud provider does two things:
-      * **Verifies the Signature:** It checks the JWT's cryptographic signature against GitHub's public keys to ensure the token is authentic and wasn't tampered with.
+      * **Verifies the Signature:** It checks the JWT's cryptographic signature against GitHub's public keys to ensure the token is authentic and wasn't tampered with. To calculate the thumbprints of Github public certificates, see [https://github.com/Brain2life/bash-cookbook/tree/main/github-oidc-thumbprint](https://github.com/Brain2life/bash-cookbook/tree/main/github-oidc-thumbprint) Bash script.
       * **Checks the Claims:** It inspects the claims inside the JWT (`repo`, `branch`, etc.) and compares them against the conditions you defined in the IAM Role's Trust Policy.
 6.  **Cloud Provider Issues a Short-Lived Token:** If the JWT is valid and the claims match the trust policy, the cloud provider issues a **short-lived access token** back to the workflow runner. This token is typically valid for an hour or less.
 7.  **Workflow Accesses Resources:** The rest of your workflow steps use this temporary token to interact with the cloud provider's services (e.g., deploy to S3, update a Lambda function). Once the token expires, it's useless.
@@ -183,7 +183,7 @@ aws s3api create-bucket \
   --bucket my-demo-github-oidc-bucket \
   --region us-east-1
 ```
-4. Upload sample image files from `sample-files` folder:
+4. Upload sample image files (Minion cartoon characters) from `sample-files` folder:
 ```bash
 aws s3 cp sample-files s3://my-demo-github-oidc-bucket/images/ --recursive
 ```
@@ -220,6 +220,41 @@ If successful, the CDK CLI will output a YAML - formatted CloudFormation templat
 cdk deploy
 ```
 
+## GitHub Action Workflow File
+
+Next, you have to create workflow file in the root of your repository: `.github/workflows/main.yaml`:
+```yaml
+name: AWS GitHub OIDC connection example workflow
+on:
+  push:
+    branches: [ "main" ]
+env:
+  AWS_REGION : "us-east-1"
+  
+permissions:
+  id-token: write   # This is required for requesting the JWT
+  contents: read    # This is required for actions/checkout
+
+jobs:
+  Test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v3
+        with:
+          role-to-assume: arn:aws:iam::951043241862:role/github-actions-deployment-role
+          aws-region: us-east-1
+      - name:  List S3 Objects
+        run: |
+          aws s3 ls s3://my-demo-github-oidc-bucket/images/ --region us-east-1
+```
+
+Change AWS Account ID and S3 bucket names to your values.
+
+On successful push and run you should see the listed images in the logs of the CI:
+
+![](../../img/github_actions_s3_list.png)
+
 ## References
 - [GitHub Docs: Configuring OpenID Connect in Amazon Web Services](https://docs.github.com/en/actions/how-tos/secure-your-work/security-harden-deployments/oidc-in-aws)
 - [Medium Blog: Github Actions, CDK and OIDC](https://ryancormack.medium.com/github-actions-cdk-and-oidc-f638582a2d5b)
@@ -229,3 +264,4 @@ cdk deploy
 - [GitHub Blog: GitHub Actions – Update on OIDC integration with AWS June 27, 2023](https://github.blog/changelog/2023-06-27-github-actions-update-on-oidc-integration-with-aws/)
 - [https://gist.github.com/guitarrapc/8e6b68f21bc1eef8e7b66bde477d5859](https://gist.github.com/guitarrapc/8e6b68f21bc1eef8e7b66bde477d5859)
 - [StackOverflow: How can I calculate the thumbprint of an OpenID Connect server?](https://stackoverflow.com/questions/69247498/how-can-i-calculate-the-thumbprint-of-an-openid-connect-server)
+- [Bash script to calcuate the Github's thumbprints](https://github.com/Brain2life/bash-cookbook/tree/main/github-oidc-thumbprint)
