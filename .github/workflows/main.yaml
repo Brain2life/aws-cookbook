@@ -1,0 +1,23 @@
+name: AWS example workflow
+on:
+  push:
+    branches: [ "main" ]
+env:
+  AWS_REGION : "us-east-1"
+  
+permissions:
+  id-token: write   # This is required for requesting the JWT
+  contents: read    # This is required for actions/checkout
+
+jobs:
+  Test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: configure aws credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          role-to-assume: 'arn:aws:iam::951043241862:role/github-actions-deployment-role'
+          aws-region: 'us-east-1'
+      - name:  list s3 objects
+        run: |
+          aws s3 list-objects --bucket 'my-demo-github-oidc-bucket' --region 'us-east-1'
