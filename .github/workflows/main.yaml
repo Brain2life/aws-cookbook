@@ -1,4 +1,4 @@
-name: AWS example workflow
+name: AWS GitHub OIDC connection example workflow
 on:
   push:
     branches: [ "main" ]
@@ -13,11 +13,11 @@ jobs:
   Test:
     runs-on: ubuntu-latest
     steps:
-      - name: configure aws credentials
-        uses: aws-actions/configure-aws-credentials@v2
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v3
         with:
           role-to-assume: 'arn:aws:iam::951043241862:role/github-actions-deployment-role'
           aws-region: 'us-east-1'
-      - name:  list s3 objects
+      - name:  List S3 Objects
         run: |
           aws s3 list-objects --bucket 'my-demo-github-oidc-bucket' --region 'us-east-1'
