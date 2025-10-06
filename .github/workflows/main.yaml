@@ -1,10 +1,10 @@
-name: AWS GitHub OIDC connection example workflow
+name: AWS GitHub OIDC Connection Example Workflow
 on:
   push:
     branches:
       - main
     paths:
-      - 'aws-cookbook/cdk/github-oidc/**'
+      - 'cdk/github-oidc/**'
 env:
   AWS_REGION : "us-east-1"
   
