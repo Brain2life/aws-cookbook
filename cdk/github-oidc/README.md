@@ -220,6 +220,8 @@ If successful, the CDK CLI will output a YAML - formatted CloudFormation templat
 cdk deploy
 ```
 
+To automate these commands, you can use `Makefile`.
+
 ## GitHub Action Workflow File
 
 Next, you have to create workflow file in the root of your repository: `.github/workflows/main.yaml`:
