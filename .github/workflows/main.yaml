@@ -20,4 +20,4 @@ jobs:
           aws-region: us-east-1
       - name:  List S3 Objects
         run: |
-          aws s3 ls s3://my-demo-github-oidc-bucket --region us-east-1
+          aws s3 ls s3://my-demo-github-oidc-bucket/images/ --region us-east-1
