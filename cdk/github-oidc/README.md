@@ -265,3 +265,4 @@ On successful push and run you should see the listed images in the logs of the C
 - [https://gist.github.com/guitarrapc/8e6b68f21bc1eef8e7b66bde477d5859](https://gist.github.com/guitarrapc/8e6b68f21bc1eef8e7b66bde477d5859)
 - [StackOverflow: How can I calculate the thumbprint of an OpenID Connect server?](https://stackoverflow.com/questions/69247498/how-can-i-calculate-the-thumbprint-of-an-openid-connect-server)
 - [Bash script to calcuate the Github's thumbprints](https://github.com/Brain2life/bash-cookbook/tree/main/github-oidc-thumbprint)
+- [Full CDK Workflow Example](https://github.com/Brain2life/aws-cookbook/tree/main/cdk/getting-started-with-cdk)
