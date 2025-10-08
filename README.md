@@ -44,6 +44,7 @@ AWS has significantly more [services](https://aws.amazon.com/products/?pg=WIAWS-
 - [Migrate PostgreSQL to AWS RDS](./migrate-to-rds-psql/)
 
 ### Cloud Development Kit (CDK)
+- [AWS CDK Learning Resources](./cdk/)
 - [AWS CDK Basics](./cdk-basics/)
 - [Getting started with CDK: Full workflow](./cdk/getting-started-with-cdk/)
 - [Configure Github OIDC with AWS via CDK](./cdk/github-oidc/)
